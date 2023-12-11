@@ -6,10 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    {% for i in data %}
-    <div>
-    {{ i.course_id }} : {{ i.course_name }} -<a href='/update/{{i.id}}/'>update</a>
-    </div>
-    {% endfor %}
+    <form action="{% url 'update' id=id %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type='sumbit'>sumbit</button>
+    </form>
 </body>
 </html>
